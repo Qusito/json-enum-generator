@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "dev": "ts-node lib/cli.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "postinstall": "npm link"
   },
   "repository": {
     "type": "git",
