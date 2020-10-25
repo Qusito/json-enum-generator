@@ -1,0 +1,5 @@
+export enum <%= enumName %> {
+<% for (var prop in values) { if (Object.prototype.hasOwnProperty.call(values, prop)) { %>
+    <%- prop.toUpperCase() %> = '<%- values[prop] %>',
+<%   }} %>
+}
