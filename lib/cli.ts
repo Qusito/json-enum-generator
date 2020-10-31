@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import yargs from 'yargs';
 import fs from 'fs';
-import * as ejs from 'ejs'
+import * as ejs from 'ejs';
+import dirname from 'path';
+import fileURLToPath from 'url';
 
 const args = yargs.options({
     'input': { type: 'string', demandOption: true, alias: 'i'},
@@ -11,7 +13,11 @@ const args = yargs.options({
 }).argv;
 
 const data = JSON.parse(fs.readFileSync(args.input, 'utf-8'));
-const template = fs.readFileSync('template/enum.template.ejs', 'utf-8');
+const template = "export enum <%= enumName %> { \n" +
+                 "<% for (var prop in values) { if (Object.prototype.hasOwnProperty.call(values, prop)) { %>\n" +
+                 "<%- prop.toUpperCase() %> = '<%- values[prop] %>',\n" +
+                 "<%   }} %>\n" +
+                 "}"
 
 const temp = Object.keys(data);
 let keys: string[] = []

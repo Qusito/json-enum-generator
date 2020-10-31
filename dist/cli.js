@@ -33,7 +33,11 @@ var args = yargs_1.default.options({
     'fileName': { type: 'string', demandOption: false, alias: 'f' }
 }).argv;
 var data = JSON.parse(fs_1.default.readFileSync(args.input, 'utf-8'));
-var template = fs_1.default.readFileSync('template/enum.template.ejs', 'utf-8');
+var template = "export enum <%= enumName %> { \n" +
+    "<% for (var prop in values) { if (Object.prototype.hasOwnProperty.call(values, prop)) { %>\n" +
+    "<%- prop.toUpperCase() %> = '<%- values[prop] %>',\n" +
+    "<%   }} %>\n" +
+    "}";
 var temp = Object.keys(data);
 var keys = [];
 temp.forEach(function (key) { return keys.push(key.toUpperCase()); });

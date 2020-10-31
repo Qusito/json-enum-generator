@@ -4,8 +4,9 @@
 
 ### Installation
 
-```
-npm install @qusito/json-enum-generator
+```bash
+npm install @qusito/json-enum-generator ## run from node_modules/.bin/json-enum-generator
+npm install --global @qusito/json-enum-generator ## run from anywhere, calling json-enum-generator
 ```
 
 ### Usage
