@@ -34,8 +34,8 @@ var args = yargs_1.default.options({
 }).argv;
 var data = JSON.parse(fs_1.default.readFileSync(args.input, 'utf-8'));
 var template = "export enum <%= enumName %> { \n" +
-    "<% for (var prop in values) { if (Object.prototype.hasOwnProperty.call(values, prop)) { %>\n" +
-    "<%- prop.toUpperCase() %> = '<%- values[prop] %>',\n" +
+    "<% for (var prop in values) { if (Object.prototype.hasOwnProperty.call(values, prop)) { %>" +
+    "  <%- prop.toUpperCase() %> = \"<%- values[prop] %>\",\n" +
     "<%   }} %>\n" +
     "}";
 var temp = Object.keys(data);

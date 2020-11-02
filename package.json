@@ -1,6 +1,6 @@
 {
   "name": "@qusito/json-enum-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate a TypeScript enum from JSON file",
   "main": "dist/cli.js",
   "keywords": [
